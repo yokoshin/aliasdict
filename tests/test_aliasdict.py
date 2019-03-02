@@ -79,16 +79,6 @@ class TestAliasDict(TestCase):
         self.assertEqual(0, len(e.alias))
         self.assertEqual(0, len(dict(filter(lambda a: len(a[1]) > 0, e.ralias.items()))))
 
-    def test_not_implemented(self):
-        e = AliasDict(compress=True)
-        e["key_a"] = "value_a"
-
-        with self.assertRaises(NotImplementedError):
-            for a in e.items():
-                print(a)
-
-        with self.assertRaises(NotImplementedError):
-            iter(e)
 
     def test_data_loading(self):
         e = AliasDict()
@@ -123,3 +113,44 @@ class TestAliasDict(TestCase):
         a.set_alias("key_a", "alias_a")
         b = AliasDict.loads(a.dumps())
         self.assertEqual("value_a", b["alias_a"])
+
+
+    def test_iterator(self):
+        a = AliasDict()
+        a["key_a"] = "value_a"
+        a["key_b"] = "value_b"
+        a["key_c"] = "value_c"
+        check_keys = {"key_a", "key_b", "key_c"}
+
+        for i in a:
+            check_keys.remove(i)
+        self.assertEqual(set(), check_keys )
+
+
+
+    def test_items_iterator(self):
+        a = AliasDict()
+        a["key_a"] = "value_a"
+        a["key_b"] = "value_b"
+        a["key_c"] = "value_c"
+        for k,v in a.items():
+            if k=="key_a":
+                self.assertEqual("value_a",v)
+
+            if k=="key_b":
+                self.assertEqual("value_b",v)
+
+            if k=="key_c":
+                self.assertEqual("value_c",v)
+
+    def test_values(self):
+        a = AliasDict()
+        a["key_a"] = "value_a"
+        a["key_b"] = "value_b"
+        a["key_c"] = "value_c"
+        check_values = {"value_a", "value_b", "value_c"}
+        for v in a.values():
+            check_values.remove(v)
+
+        self.assertEqual(set(), check_values )
+

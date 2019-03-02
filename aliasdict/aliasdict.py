@@ -47,16 +47,21 @@ class GZDict:
             return self._data.__repr__()
 
     def __iter__(self):
-        if self._compress:
-            raise NotImplementedError()
-        else:
-            self._data.__iter__()
+        return self._data.__iter__()
 
     def keys(self):
         return self._data.keys()
 
+    def values(self):
+        if self._compress:
+            for k in self.keys():
+                yield self.__getitem__(k)
+        else:
+            self._data.values()
+
     def items(self):
-        raise NotImplementedError()
+        for k in self._data:
+            yield ( k , self.__getitem__(k) )
 
     def __contains__(self, item):
         return self._data.__contains__(item)

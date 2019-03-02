@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-version = "0.9.3"
+version = "0.9.4"
 
 def write_version():
     with open(os.path.join("aliasdict", "version.py"), 'w') as fp:
@@ -20,7 +20,7 @@ setup(
     long_description=readme,
     packages=['aliasdict', ],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.5',

@@ -1,6 +1,11 @@
 ================
-CacheLite
+AliasDict
 ================
+This module helps users to make multiple keys dict with same value.
+In addition to that, this dict automatically gzip-compress values.
+So it's very efficient.
+
+I hope this module helps you python programing in your lap-top PC.
 
 
 Quickstart
@@ -17,6 +22,7 @@ Then you can use it.
     import aliasdict from AliasDict
 
     adct = AliasDict()
+    #if you don't need value compression, AliasDict(compress=False)
 
     #put a key-value
     adct["YOUR_KEY"] = "YOUR_VALUE"
