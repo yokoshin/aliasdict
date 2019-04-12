@@ -42,7 +42,7 @@ class GZDict:
 
     def __repr__(self):
         if self._compress:
-            return self._data.__str__()
+            return self.__str__()
         else:
             return self._data.__repr__()
 

@@ -94,7 +94,7 @@ class TestAliasDict(TestCase):
         e = AliasDict()
         e["key_a"] = "value_a"
         e["key_b"] = "value_b"
-        self.assertEqual("{'key_a': 'value_a', 'key_b': 'value_b'}", e.__str__())
+        self.assertIn( e.__str__(), ["{'key_a': 'value_a', 'key_b': 'value_b'}","{'key_b': 'value_b', 'key_a': 'value_a'}"])
 
     def test_dump_load(self):
         a = AliasDict()

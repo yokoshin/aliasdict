@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-version = "0.9.4"
+version = "0.9.5"
 
 def write_version():
     with open(os.path.join("aliasdict", "version.py"), 'w') as fp:
