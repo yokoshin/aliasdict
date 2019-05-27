@@ -19,7 +19,7 @@ Then you can use it.
 
 .. code-block:: python
 
-    import aliasdict from AliasDict
+    from aliasdict import  AliasDict
 
     adct = AliasDict()
     #if you don't need value compression, AliasDict(compress=False)
