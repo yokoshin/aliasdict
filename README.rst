@@ -11,7 +11,7 @@ I hope this module helps you python programing in your lap-top PC.
 Quickstart
 ----------
 
-Install cachelite::
+Install aliasdict::
 
     pip install aliasdict
 
