@@ -36,7 +36,7 @@ class TestAliasDict(TestCase):
         e["key_a"] = "value_a"
         self.assertEqual(1, len(e))
 
-    def test_composite_key(self):
+    def test_len_single_key(self):
         e = AliasDict()
         e["key_a"] = "value_a"
         self.assertEqual(1, len(e))
@@ -153,4 +153,12 @@ class TestAliasDict(TestCase):
             check_values.remove(v)
 
         self.assertEqual(set(), check_values )
+
+    def test_values_uncompressed(self):
+        ad = AliasDict(compress=False)
+        ad["k1"] = "v1"
+        ad["k2"] = "v2"
+        ad["k3"] = "v3"
+
+        self.assertEqual({"v1", "v2", "v3"}, set(ad.values()))
 
