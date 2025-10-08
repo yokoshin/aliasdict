@@ -57,7 +57,8 @@ class GZDict:
             for k in self.keys():
                 yield self.__getitem__(k)
         else:
-            return self._data.values()
+            for v in self._data.values():
+                yield v
 
     def items(self):
         for k in self._data:
